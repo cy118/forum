@@ -1,0 +1,230 @@
+.comment {
+    position:relative;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+
+.comment__replies {
+    margin-left: 15px;
+}
+
+.comment__header {
+    padding: 10px 13px 5px 13px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.comment__author {
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    margin: 0;
+}
+
+.comment__date {
+    text-align: left;
+    padding-left: 10px;
+    font-weight: lighter;
+    font-size: 11px;
+    width: 100%;
+    margin: 0;
+}
+
+.comment__content {
+    box-sizing: border-box;
+    padding: 10px 13px 15px 13px;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    flex-grow: 1;
+    font-size: 13px;
+    line-height: 20px;
+    white-space: pre-wrap;
+}
+
+.comment__footer {
+    box-sizing: border-box;
+    padding: 0 13px 10px 13px;
+    margin: 0;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.comment__likes {
+    text-align: left;
+    color: gray;
+    font-weight: bold;
+    font-size: 11px
+}
+
+.comment__upvote {
+    width: 15px;
+    height: 19px;
+    margin-right: 2px;
+    padding: 3px;
+}
+
+.comment__downvote {
+    width: 15px;
+    height: 19px;
+    padding: 3px;
+    margin-left: 2px;
+}
+
+.comment__upvote:hover {
+    background-color: lightgray;
+}
+
+.comment__downvote:hover {
+    background-color: lightgray;
+}
+
+.comment__reply {
+    text-align: left;
+    margin-left: 10px;
+    color: gray;
+    font-weight: bold;
+    font-size: 11px;
+    border: none;
+    background-color: transparent;
+}
+
+.comment__reply:hover {
+    background-color: #efefef;
+}
+
+.comment__line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    color: #efefef;
+    width: 2.5px;
+    background-color: #efefef;
+    border: none;
+}
+
+.comment__more {
+    text-align: right;
+    font-weight: 1000;
+    font-size: 10px;
+    color: gray;
+    width: 40px;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.comment__more:hover {
+    background-color: #efefef;
+}
+
+.comment__menu {
+    position: absolute;
+    background-color: white;
+    top:2px;
+    right: -15px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 5px;
+    width: 80px;
+    border: solid #efefef 0.1rem;
+    border-radius: 5px;
+    align-items: center;
+    padding: 0;
+}
+
+.comment__menu hr {
+    width: 100%;
+    height: 1px;
+    background-color: #efefef;
+    color: #efefef;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.comment__menu button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 30px;
+    font-weight: 600;
+}
+
+.comment__menu button:hover {
+    background-color: #efefef;
+}
+
+.comment__hide {
+    display: none;
+}
+
+.comment__commentInput {
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 0.07rem solid #efefef;
+}
+
+.comment__commentInput textarea {
+    padding: 10px 15px 10px 15px;
+    resize: none;
+    height: 120px;
+    border: none;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+.comment__commentInput:hover {
+    border-color: lightgray;
+}
+
+.comment__commentInput textarea:focus {
+    outline: none;
+}
+
+.comment__commentButton {
+    height: 35px;
+    background-color: #efefef;
+    display: flex;
+    align-items: center;
+}
+
+.comment__editButton {
+    background-color: #0279d2;
+    color:white;
+    border:none;
+    border-radius: 25px;
+    height: 25px;
+    width: 80px;
+    font-weight: bold;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.comment__cancelButton {
+    margin-left: auto;
+    background-color: white;
+    color:#0279d2;
+    border:solid 1px #0279d2;
+    border-radius: 25px;
+    height: 25px;
+    width: 80px;
+    font-weight: bold;
+    margin-right: 10px;
+    padding: 0;
+}

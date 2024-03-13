@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.forum.mapper.CommentMapper">	<!-- mapper 인터페이스가 위치하는 경로 -->
+    <select id="getComment" resultType="com.cy.forum.model.model.Comment">	<!-- id: mapper 인터페이스에서 선언한 메서드 이름과 같아야 한다. resultType: VO 클래스가 위치하는 경로 -->
+        SELECT *
+        FROM comment
+        WHERE comment_id = #{commentId}
+        Limit 1
+    </select>
+
+    <select id="getComments" resultType="com.cy.forum.model.model.Comment">	<!-- id: mapper 인터페이스에서 선언한 메서드 이름과 같아야 한다. resultType: VO 클래스가 위치하는 경로 -->
+        SELECT *
+        FROM comment
+        WHERE ref_post_id = #{postId} AND (ref_comment_id = #{commentId} OR (#{commentId} = 0 AND ref_comment_id IS NULL))
+    </select>
+
+    <insert id="createComment" useGeneratedKeys="true" parameterType="com.cy.forum.model.model.Comment">
+        INSERT INTO comment(ref_post_id, ref_comment_id, author_id, content, created_date, edited_date)
+        VALUES (
+                   #{refPostId}, #{refCommentId},  #{authorId}, #{content}, UTC_TIMESTAMP(), null
+               )
+    </insert>
+
+    <update id="editComment" parameterType="com.cy.forum.model.model.Comment">
+        UPDATE comment
+        SET content=#{content}, edited_date=UTC_TIMESTAMP()
+        WHERE comment_id = #{commentId}
+    </update>
+
+
+    <update id="deleteComment">
+        UPDATE comment
+        SET is_deleted=true, edited_date=UTC_TIMESTAMP()
+        WHERE comment_id = #{commentId}
+    </update>
+
+    <select id="getCommentCountForPost" resultType="_int">
+        SELECT count(*)
+        FROM comment
+        WHERE ref_post_id = #{postId}
+    </select>
+</mapper>

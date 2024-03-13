@@ -1,0 +1,47 @@
+.reply__commentInput {
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 0.07rem solid #efefef;
+}
+
+.reply__commentInput textarea {
+    padding: 10px 15px 10px 15px;
+    resize: none;
+    height: 120px;
+    border: none;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+.reply__commentInput:hover {
+    border-color: lightgray;
+}
+
+.reply__commentInput textarea:focus {
+    outline: none;
+}
+
+.reply__commentButton {
+    height: 35px;
+    background-color: #efefef;
+    display: flex;
+    align-items: center;
+}
+
+.reply__commentButton button {
+    margin-left: auto;
+    background-color: #0279d2;
+    color:white;
+    border:none;
+    border-radius: 25px;
+    height: 25px;
+    width: 90px;
+    font-weight: bold;
+    margin-right: 10px;
+    padding: 0;
+}

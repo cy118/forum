@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.forum.mapper.VoteMapper">	<!-- mapper 인터페이스가 위치하는 경로 -->
+    <select id="getLikeCountForPost" resultType="_int">
+    SELECT (
+        SELECT count(*)
+        FROM vote
+        WHERE post_id = #{postId} AND is_like = true
+        ) - (
+        SELECT count(*)
+        FROM vote
+        WHERE post_id = #{postId} AND is_like = false)
+    </select>
+
+    <select id="getLikeCountForComment" resultType="_int">
+        SELECT (
+            SELECT count(*)
+            FROM vote
+            WHERE comment_id = #{commentId} AND is_like = true
+            )-(
+            SELECT count(*)
+            FROM vote
+            WHERE comment_id = #{commentId} AND is_like = false)
+    </select>
+
+    <select id="getVote" resultType="com.cy.forum.model.model.Vote">
+       SELECT *
+       FROM vote
+       WHERE ((NOT #{isPost} AND comment_id = #{commentId} )OR (#{isPost} AND post_id = #{postId})) AND user_id = #{userId}
+       LIMIT 1
+    </select>
+
+    <insert id="doVote" useGeneratedKeys="true" parameterType="com.cy.forum.model.model.Vote">
+        INSERT INTO vote(post_id, comment_id, is_like, user_id)
+        VALUES (
+                   #{postId}, #{commentId}, #{isLike}, #{userId}
+               );
+    </insert>
+
+    <delete id="undoVote">
+        DELETE FROM vote
+        WHERE vote_id = #{voteId}
+    </delete>
+
+    <update id="updateVote">
+        UPDATE vote
+        SET is_like=#{isLike}
+        WHERE vote_id = #{voteId}
+    </update>
+</mapper>
